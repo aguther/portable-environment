@@ -1,0 +1,111 @@
+[user]
+	name = Andreas Guther
+	email = github@guther.net
+
+[push]
+	default = simple
+
+[core]
+	editor = vim
+
+[merge]
+	tool = bcompare
+
+[alias]
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# common shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	aa			= add -A
+	ap			= add -p
+	au			= add -u
+	br			= branch
+	cl			= clean
+	cm			= commit
+	co			= checkout
+	cp			= cherry-pick
+	s				= status -s
+	sd			= status
+	purge		= clean -dxf
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# diff shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	df		= diff --word-diff
+	df1		= diff HEAD^
+	df2		= diff HEAD^^
+	dfc		= diff --cached
+	dfc1		= diff --cached HEAD^
+	dfc2		= diff --cached HEAD^^
+	dfr		= "!f() { git diff "$1"^.."$1"; }; f"
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# reset shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	r			= reset
+	r1			= reset HEAD^
+	r2			= reset HEAD^^
+	rh			= reset --hard
+	rh1			= reset HEAD^ --hard
+	rh2			= reset HEAD^^ --hard
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# stash shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	sta			= stash apply
+	stl			= stash list
+	sts			= stash save
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# assume shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	assume 		= update-index --assume-unchanged
+	unassume 	= update-index --no-assume-unchanged
+	assumed 	= "!git ls-files -v | grep ^h | cut -c 3-"
+	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# other common shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	# find any file that is under source control
+	find 		= "!git ls-files | grep -i"
+
+	# search in files that are under source control
+	grep 		= grep -Ii
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# commit history shortcuts
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	# list oneline commits showing relative dates
+	ld 			= log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative 
+	
+	# list oneline commits showing dates
+	lds 		= log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	
+	# short git log
+	le 			= log --oneline --decorate
+	
+	# list commits showing changed files
+	ll 			= log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	
+	# show modified files in last commit
+	ll1			= "!git ll -1"
+	
+	# list commits from ... to
+	llc  		= "!f() { git ll "$1"^.."$1"; }; f"
+
+	# list with no colors if you need to chain the out put with Unix pipes
+	lnc 		= log --pretty=format:"%h\\ %s\\ [%cn]"
+	
+	# list commits in short form, with colors and branch/tag annotations
+	ls 			= log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+
+	# see all the commits related to a file
+	filelog 	= log -u
