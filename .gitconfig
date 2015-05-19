@@ -23,15 +23,16 @@
 	cm			= commit
 	co			= checkout
 	cp			= cherry-pick
-	s				= status -s
+	s			= status -s
 	sd			= status
-	purge		= clean -dxf
+	purge			= clean -dxf
 
 
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# diff shortcuts
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	df		= diff --word-diff
+	df		= diff
+	dfw		= diff --word-diff
 	df1		= diff HEAD^
 	df2		= diff HEAD^^
 	dfc		= diff --cached
@@ -65,7 +66,7 @@
 	assume 		= update-index --assume-unchanged
 	unassume 	= update-index --no-assume-unchanged
 	assumed 	= "!git ls-files -v | grep ^h | cut -c 3-"
-	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+	unassumeall 	= "!git assumed | xargs git update-index --no-assume-unchanged"
 
 
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,7 +88,7 @@
 	ld 			= log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative 
 	
 	# list oneline commits showing dates
-	lds 		= log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	lds 			= log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	
 	# short git log
 	le 			= log --oneline --decorate
@@ -99,13 +100,13 @@
 	ll1			= "!git ll -1"
 	
 	# list commits from ... to
-	llc  		= "!f() { git ll "$1"^.."$1"; }; f"
+	llc  			= "!f() { git ll "$1"^.."$1"; }; f"
 
 	# list with no colors if you need to chain the out put with Unix pipes
-	lnc 		= log --pretty=format:"%h\\ %s\\ [%cn]"
+	lnc 			= log --pretty=format:"%h\\ %s\\ [%cn]"
 	
 	# list commits in short form, with colors and branch/tag annotations
 	ls 			= log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 
 	# see all the commits related to a file
-	filelog 	= log -u
+	filelog 		= log -u
