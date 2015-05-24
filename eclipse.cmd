@@ -10,7 +10,7 @@ call environment.cmd
 cd %ECLIPSE_HOME%
 
 :: start eclipse
-start eclipse.exe
+start eclipse.exe -vm %JAVA_HOME%\bin\javaw.exe
 
 :: restore directory
 popd
