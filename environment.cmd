@@ -27,6 +27,12 @@ set JAVA_HOME=%CD%\tools\java\jdk1.7.0_79
 echo.JAVA_HOME=%JAVA_HOME%
 echo.-------------------------------------------------------------------------------
 
+:: python 2.x
+::set PYTHON_HOME=%CD%\tools\python-2.6.6
+set PYTHON_HOME=%CD%\tools\python-2.6.6
+echo.PYTHON_HOME=%PYTHON_HOME%
+echo.-------------------------------------------------------------------------------
+
 :: maven
 set M2_HOME=%CD%\tools\apache-maven-3.3.3
 echo.M2_HOME=%M2_HOME%
@@ -55,7 +61,7 @@ echo.INTELLIJ_HOME=%INTELLIJ_HOME%
 echo.-------------------------------------------------------------------------------
 
 :: set path environment
-set PATH=%GIT_HOME%\cmd;%GIT_HOME%;%JAVA_HOME%\bin;%M2_HOME%\bin;%GRADLE_HOME%\bin;%SONAR_HOME%\bin\windows-x86-64;%SONAR_RUNNER_HOME%\bin;%ECLIPSE_HOME%;%INTELLIJ_HOME%\bin;%PATH%;
+set PATH=%GIT_HOME%\cmd;%GIT_HOME%;%JAVA_HOME%\bin;%PYTHON_HOME%;%M2_HOME%\bin;%GRADLE_HOME%\bin;%SONAR_HOME%\bin\windows-x86-64;%SONAR_RUNNER_HOME%\bin;%ECLIPSE_HOME%;%INTELLIJ_HOME%\bin;%PATH%;
 echo.PATH=%PATH%
 echo.-------------------------------------------------------------------------------
 
